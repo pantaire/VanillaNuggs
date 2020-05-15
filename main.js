@@ -1,14 +1,5 @@
 // VARIABLES ----------------------------------------------
 
-var exact = {
-    twens: 0,
-    nines: 0,
-    sixes: 0,
-    nuggcount: 0,
-    sauces: 0,
-    price: 0,
-};
-
 var easy = {
     twens: 0,
     nines: 0,
@@ -73,48 +64,55 @@ function math() {
     document.getElementById("math").innerHTML = math;
 }
 
-var i;
-function calcExact(i) {
+function calcExact(input) {
 
-var i = getInput();
+    var input = getInput();
 
     //initialisierung mit s/n/t=0 nötig?
     if (input <= 6) {
-        this.sixes = 1;
-        this.nines = 0;
-        this.twens = 0;
+        exactsixes = 1;
+        exactnines = 0;
+        exacttwens = 0;
     }
     else if (input > 6 && input <= 9) {
-        this.sixes = 0;
-        this.nines = 1;
-        this.twens = 0;
+        exactsixes = 0;
+        exactnines = 1;
+        exacttwens = 0;
     }
     else if (input > 9 && input <= 12) {
-        this.sixes = 2;
-        this.nines = 0;
-        this.twens = 0;
+        exactsixes = 2;
+        exactnines = 0;
+        exacttwens = 0;
     }
     else if (input > 12 && input <= 20) {
-        this.sixes = 0;
-        this.nines = 0;
-        this.twens = 1;
+        exactsixes = 0;
+        exactnines = 0;
+        exacttwens = 1;
     }
     else {
         if (input % 6 == 0 || input % 6 >= 4 ) {
-            this.sixes = input / 6;
+            exactsixes = input / 6;
         }
         else if (input % 9 == 0 || input % 9 >= 6) {
-            this.nines = input / 9;
+            exactnines = input / 9;
         }
         else if (input % 20 == 0 || input % 20 >= 14) {
-            this.twens = input / 20;
+            exacttwens = input / 20;
         }
     }
     
-    this.nuggcount = this.sixes * 6 + this.nines * 9 + this.twens * 20;
-    this.dipcount = this.sixes * dip6 + this.nines * dip9 + this.twens * dip20;
-    this.price = this.sixes * price6 + this.nines * price9 + this.twens * price20;	
-return this;
+    exactnuggcount = exactsixes * 6 + exactnines * 9 + exacttwens * 20;
+    exactdipcount = exactsixes * dip6 + exactnines * dip9 + exacttwens * dip20;
+    exactprice = exactsixes * price6 + exactnines * price9 + exacttwens * price20;
+    
+    return var exact = {
+        twens: exacttwens,
+        nines: exactnines,
+        sixes: exactsixes,
+        nuggcount: exactnuggcount,
+        sauces: exactdipcount,
+        price: exactprice,
+    };
 }
 
 
