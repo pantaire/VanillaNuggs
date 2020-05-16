@@ -1,0 +1,11 @@
+Mutt:
+JS:
+    Mathe:
+        einbinden, dass Input von Funktionen verwendet werden kann
+    Display:
+        kurze Erklärung/Anleitung einbauen
+
+
+Kann:
+Style:
+    anpassen in eher gelb/braun oder so. zumindest nicht ganz so bootstrappy

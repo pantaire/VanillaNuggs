@@ -26,23 +26,25 @@
 //DISPLAYING --------------------------------------------------
 
     //onclick() action to process input 
-    function toggleShowContent() {
+    function showContent() {
+        calcAll();
+        math();
+        displayInput();
+        toggleContent();
+    }
+
+    function toggleContent() {
         var content = document.getElementById("showContent");
         if (content.style.display === "none") {
         content.style.display = "block";
         } else {
         content.style.display = "none";
         }
-        displayInput();
-        calcAll();
-        showOrders();
-        math();
     }
     
     //reads input and displays it
     function displayInput() {
-        var input;
-        input = getInput();
+        var input = document.getElementById("input").value;
         document.getElementById("inputHere").innerHTML = input;
     }
 
@@ -53,10 +55,10 @@
     }
 
     //subfunction to show orders -> can be integrated into ToggleShowContent()
-    function showOrders() {
+    /*function showOrders() {
         var orderList = document.getElementById("orderList");
         orderList.style.display = "block";
-    }
+    }*/
     
     //shows disclaimer after clicking corr. button; can be modified for showing graphs later
     function toggleShowDisclaimer() {
@@ -81,25 +83,10 @@
         calcEasiest();
         calcCheapest();
         calcSauciest();
-        
-        var orders = [
-            {
-                exact
-            },
-            {
-                easiest
-            },
-            {
-                cheapest
-            },
-            {
-                sauciest
-            }
-        ]
-        return orders;
     }
 
     function calcExact() {
+        input = getInput();
         var exact = {
             twens: 0,
             nines: 0,
@@ -142,8 +129,8 @@
         }
         
         this.nuggcount = this.sixes * 6 + this.nines * 9 + this.twens * 20;
-        this.dipcount = this.sixes * dips.dip6 + this.nines * dips.dip9 + this.twens * dips.dip20;
-        this.price = this.sixes * prices.price6 + this.nines * prices.price9 + this.twens * prices.price20;	
+        this.dipcount = this.sixes * dip6 + this.nines * dip9 + this.twens * dip20;
+        this.price = this.sixes * price6 + this.nines * price9 + this.twens * price20;
         
         return exact;
     }
@@ -196,9 +183,8 @@
             }
         }
         this.nuggcount = this.sixes * 6 + this.nines * 9 + this.twens * 20;
-        this.dipcount = this.sixes * dips.dip6 + this.nines * dips.dip9 + this.twens * dips.dip20;
-        this.price = this.sixes * prices.price6 + this.nines * prices.price9 + this.twens * prices.price20;	
-        
+        this.dipcount = this.sixes * dip6 + this.nines * dip9 + this.twens * dip20;
+        this.price = this.sixes * price6 + this.nines * price9 + this.twens * price20;
         return easiest;
     }
 
@@ -241,8 +227,8 @@
         }
 
         this.nuggcount = this.sixes * 6 + this.nines * 9 + this.twens * 20;
-        this.dipcount = this.sixes * dips.dip6 + this.nines * dips.dip9 + this.twens * dips.dip20;
-        this.price = this.sixes * prices.price6 + this.nines * prices.price9 + this.twens * prices.price20;	
+        this.dipcount = this.sixes * dip6 + this.nines * dip9 + this.twens * dip20;
+        this.price = this.sixes * price6 + this.nines * price9 + this.twens * price20;	
         
         return cheapest;
     }
@@ -268,8 +254,8 @@
         }
 
         this.nuggcount = this.sixes * 6 + this.nines * 9 + this.twens * 20;
-        this.dipcount = this.sixes * dips.dip6 + this.nines * dips.dip9 + this.twens * dips.dip20;
-        this.price = this.sixes * prices.price6 + this.nines * prices.price9 + this.twens * prices.price20;	
+        this.dipcount = this.sixes * dip6 + this.nines * dip9 + this.twens * dip20;
+        this.price = this.sixes * price6 + this.nines * price9 + this.twens * price20;
         
         return sauciest;
     }
