@@ -11,7 +11,7 @@
           <title>Know Thy Nuggs.</title>
           
           <!-- Bootstrap core CSS -->
-          <link href="bootstrap.min.css" rel="stylesheet">
+          <link href="style.css" rel="stylesheet">
         </head>
         
         <body>
@@ -25,47 +25,11 @@
                     <hr>
         <input type="number" id="input" class="input-group-lg get-input" draggable="true">
         <button type ="submit" class="btn btn-group-lg btn-dark btn-primary" onclick="toggleShowContent()">Los gehts</button>
-        <button type ="submit" class="btn btn-group-lg btn-dark btn-primary" onclick="rain()">Let it rain</button>
+        <!--<button type ="submit" class="btn btn-group-lg btn-dark btn-primary" onclick="rain()">Let it rain</button>-->
     
         <p id="showContent"> Hier sind <span id="inputHere"></span> Nux:</p>
-        <p id="math">Multiplikationszeuch</p>
+        <p>Mathtest: <span id="math"></span></p>
 
-        <div id="id01">
-            {{name}} {{abbr}}
-            </div>
-            
-            <script>
-            var orders =
-[{
-        name: "Genaueste Anzahl",
-        abbr: "precise",
-        twens: "1",
-        nines: "3",
-        sixes: "4"
-    },
-    {
-        name: "Einfache Bestellung",
-        abbr: "easy",
-        twens: "1",
-        nines: "3",
-        sixes: "4"
-    },
-    {
-        name: "Bester Preis",
-        abbr: "cheap",
-        twens: "1",
-        nines: "3",
-        sixes: "4"
-    },
-    {
-        name: "Meiste Dips",
-        abbr: "saucy",
-        twens: "1",
-        nines: "3",
-        sixes: "4"
-    }]
-            w3.displayObject("id01", orders);
-            </script>
     </header>
     
     <ul id="orderList" class="orders">
