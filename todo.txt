@@ -2,9 +2,11 @@ Mutt:
 JS:
     Mathe:
         einbinden, dass Input von Funktionen verwendet werden kann
+        Scope von Variablen nachvollziehen
+        -> Objekte erst zum Ende hin definieren, nach Berechnungen
     Display:
         kurze Erklärung/Anleitung einbauen
-
+        Preise ändern vorerst noch ausblenden
 
 Kann:
 Style:
