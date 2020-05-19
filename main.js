@@ -23,7 +23,7 @@ var dips = {
 
 //DISPLAYING --------------------------------------------------
 
-//onclick() action to process input 
+//onclick() action to process inputAmount 
 function showContent() {
     calcAll();
     math();
@@ -40,16 +40,16 @@ function toggleContent() {
     }
 }
 
-//reads input and displays it
+//reads inputAmount and displays it
 function displayInput() {
-    input = getInput();
-    document.getElementById("inputHere").innerHTML = input;
+    inputAmount = getInput();
+    document.getElementById("inputHere").innerHTML = inputAmount;
 }
 
-//reads input -> can be integrated into ToggleShowContent()
+//reads inputAmount -> can be integrated into ToggleShowContent()
 function getInput() {
-    inp = document.getElementById("input").value;
-    return inp;
+    inputAmount = document.getElementById("input").value;
+    return inputAmount;
 }
 
 //subfunction to show orders -> can be integrated into ToggleShowContent()
@@ -77,14 +77,14 @@ function math() {
 }
 
 function calcAll() {
-    var input = getInput();
-    calcExact(input);
-    calcEasiest(input);
-    calcCheapest(input);
-    calcSauciest(input);
+    var inputAmount = getInput();
+    calcExact(inputAmount);
+    calcEasiest(inputAmount);
+    calcCheapest(inputAmount);
+    calcSauciest(inputAmount);
 }
 
-function calcExact(input) {
+function calcExact(inputAmount) {
     var exact = {
         twens: 0,
         nines: 0,
@@ -94,29 +94,29 @@ function calcExact(input) {
         price: 0
     };
 
-    if (input <= 6) {
+    if (inputAmount <= 6) {
         exact.sixes = 1;
         exact.nines = 0;
         exact.twens = 0;
-    } else if (input > 6 && input <= 9) {
+    } else if (inputAmount > 6 && inputAmount <= 9) {
         exact.sixes = 0;
         exact.nines = 1;
         exact.twens = 0;
-    } else if (input > 9 && input <= 12) {
+    } else if (inputAmount > 9 && inputAmount <= 12) {
         exact.sixes = 2;
         exact.nines = 0;
         exact.twens = 0;
-    } else if (input > 12 && input <= 20) {
+    } else if (inputAmount > 12 && inputAmount <= 20) {
         exact.sixes = 0;
         exact.nines = 0;
         exact.twens = 1;
     } else {
-        if (input % 6 == 0 || input % 6 >= 4) {
-            exact.sixes = input / 6;
-        } else if (input % 9 == 0 || input % 9 >= 6) {
-            exact.nines = input / 9;
-        } else if (input % 20 == 0 || input % 20 >= 14) {
-            exact.twens = input / 20;
+        if (inputAmount % 6 == 0 || inputAmount % 6 >= 4) {
+            exact.sixes = inputAmount / 6;
+        } else if (inputAmount % 9 == 0 || inputAmount % 9 >= 6) {
+            exact.nines = inputAmount / 9;
+        } else if (inputAmount % 20 == 0 || inputAmount % 20 >= 14) {
+            exact.twens = inputAmount / 20;
         }
     }
 
@@ -127,7 +127,7 @@ function calcExact(input) {
     return exact;
 }
 
-function calcEasiest(input) {
+function calcEasiest(inputAmount) {
     var easiest = {
         twens: 0,
         nines: 0,
@@ -137,43 +137,43 @@ function calcEasiest(input) {
         price: 0
     };
 
-    if (input <= 6) {
+    if (inputAmount <= 6) {
         easiest.sixes = 1;
         easiest.nines = 0;
         easiest.twens = 0;
-    } else if (input > 6 && input <= 9) {
+    } else if (inputAmount > 6 && inputAmount <= 9) {
         easiest.sixes = 0;
         easiest.nines = 1;
         easiest.twens = 0;
-    } else if (input > 9 && input <= 12) {
+    } else if (inputAmount > 9 && inputAmount <= 12) {
         easiest.sixes = 2;
         easiest.nines = 0;
         easiest.twens = 0;
-    } else if (input > 12 && input <= 20) {
+    } else if (inputAmount > 12 && inputAmount <= 20) {
         easiest.sixes = 0;
         easiest.nines = 0;
         easiest.twens = 1;
     } else {
-        if (input % 6 == 0 || input % 6 >= 4) {
-            easiest.sixes = input / 6;
-        } else if (input % 9 == 0 || input % 9 >= 6) {
-            easiest.nines = input / 9;
-        } else if (input % 20 == 0 || input % 20 >= 14) {
-            easiest.twens = input / 20;
-            if (input % 20 <= 6) {
+        if (inputAmount % 6 == 0 || inputAmount % 6 >= 4) {
+            easiest.sixes = inputAmount / 6;
+        } else if (inputAmount % 9 == 0 || inputAmount % 9 >= 6) {
+            easiest.nines = inputAmount / 9;
+        } else if (inputAmount % 20 == 0 || inputAmount % 20 >= 14) {
+            easiest.twens = inputAmount / 20;
+            if (inputAmount % 20 <= 6) {
                 easiest.sixes++;
-            } else if (input % 20 <= 9) {
+            } else if (inputAmount % 20 <= 9) {
                 easiest.nines++;
             }
         }
     }
     easiest.nuggcount = easiest.sixes * 6 + easiest.nines * 9 + easiest.twens * 20;
-    eeasiest.dipcount = easiest.sixes * dip6 + exact.nines * dip9 + eeasiest.twens * dip20;
+    easiest.dipcount = easiest.sixes * dip6 + easiest.nines * dip9 + easiest.twens * dip20;
     easiest.price = easiest.sixes * price6 + easiest.nines * price9 + easiest.twens * price20;
     return easiest;
 }
 
-function calcCheapest(input) {
+function calcCheapest(inputAmount) {
     var cheapest = {
         twens: 0,
         nines: 0,
@@ -183,24 +183,24 @@ function calcCheapest(input) {
         price: 0
     };
 
-    if (input <= 6) {
+    if (inputAmount <= 6) {
         cheapest.sixes = 1;
         cheapest.nines = 0;
         cheapest.twens = 0;
-    } else if (input > 6 && input <= 9) {
+    } else if (inputAmount > 6 && inputAmount <= 9) {
         cheapest.sixes = 0;
         cheapest.nines = 1;
         cheapest.twens = 0;
-    } else if (input > 9 && input <= 20) {
+    } else if (inputAmount > 9 && inputAmount <= 20) {
         cheapest.sixes = 0;
         cheapest.nines = 0;
         cheapest.twens = 1;
     }
 
-    cheapest.twens = input / 20;
-    var r20 = input % 20;
+    cheapest.twens = inputAmount / 20;
+    var r20 = inputAmount % 20;
     cheapest.nines = r20 / 9;
-    var r9 = input % 9;
+    var r9 = inputAmount % 9;
     if (r9 <= 6) {
         cheapest.sixes++;
     } else {
@@ -214,7 +214,7 @@ function calcCheapest(input) {
     return cheapest;
 }
 
-function calcSauciest(input) {
+function calcSauciest(inputAmount) {
     var sauciest = {
         twens: 0,
         nines: 0,
@@ -223,10 +223,10 @@ function calcSauciest(input) {
         dipcount: 0,
         price: 0
     };
-    
-    sauciest.input = input;
-    var r9 = input % 9;
-    sauciest.nines = input / 9;
+
+    sauciest.inputAmount = inputAmount;
+    var r9 = inputAmount % 9;
+    sauciest.nines = inputAmount / 9;
     sauciest.sixes = 0;
     sauciest.twens = 0;
     if (r9 >= 7) {
