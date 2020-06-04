@@ -91,7 +91,8 @@ function calcExact(inputAmount) {
         sixes: 0,
         nuggcount: 0,
         dipcount: 0,
-        price: 0
+        price: 0, 
+        accuracy: 0
     };
 
     if (inputAmount <= 6) {
@@ -123,6 +124,7 @@ function calcExact(inputAmount) {
     exact.nuggcount = exact.sixes * 6 + exact.nines * 9 + exact.twens * 20;
     exact.dipcount = exact.sixes * dip6 + exact.nines * dip9 + exact.twens * dip20;
     exact.price = exact.sixes * price6 + exact.nines * price9 + exact.twens * price20;
+    exact.accuracy = (inputAmount / exact.nuggcount) * 100;
 
     return exact;
 }
@@ -134,7 +136,8 @@ function calcEasiest(inputAmount) {
         sixes: 0,
         nuggcount: 0,
         dipcount: 0,
-        price: 0
+        price: 0,
+        accuracy: 0
     };
 
     if (inputAmount <= 6) {
@@ -170,6 +173,7 @@ function calcEasiest(inputAmount) {
     easiest.nuggcount = easiest.sixes * 6 + easiest.nines * 9 + easiest.twens * 20;
     easiest.dipcount = easiest.sixes * dip6 + easiest.nines * dip9 + easiest.twens * dip20;
     easiest.price = easiest.sixes * price6 + easiest.nines * price9 + easiest.twens * price20;
+    easiest.accuracy = (inputAmount / easiest.nuggcount) * 100;
     return easiest;
 }
 
@@ -180,7 +184,8 @@ function calcCheapest(inputAmount) {
         sixes: 0,
         nuggcount: 0,
         dipcount: 0,
-        price: 0
+        price: 0,
+        accuracy: 0
     };
 
     if (inputAmount <= 6) {
@@ -210,6 +215,7 @@ function calcCheapest(inputAmount) {
     cheapest.nuggcount = cheapest.sixes * 6 + cheapest.nines * 9 + cheapest.twens * 20;
     cheapest.dipcount = cheapest.sixes * dip6 + cheapest.nines * dip9 + cheapest.twens * dip20;
     cheapest.price = cheapest.sixes * price6 + cheapest.nines * price9 + cheapest.twens * price20;
+    cheapest.accuracy = (inputAmount / cheapest.nuggcount) * 100;
 
     return cheapest;
 }
@@ -221,7 +227,8 @@ function calcSauciest(inputAmount) {
         sixes: 0,
         nuggcount: 0,
         dipcount: 0,
-        price: 0
+        price: 0, 
+        accuracy: 0
     };
 
     sauciest.inputAmount = inputAmount;
@@ -238,6 +245,7 @@ function calcSauciest(inputAmount) {
     sauciest.nuggcount = sauciest.sixes * 6 + sauciest.nines * 9 + sauciest.twens * 20;
     sauciest.dipcount = sauciest.sixes * dip6 + sauciest.nines * dip9 + sauciest.twens * dip20;
     sauciest.price = sauciest.sixes * price6 + sauciest.nines * price9 + sauciest.twens * price20;
+    sauciest.accuracy = (inputAmount / sauciest.nuggcount) * 100;
 
     return sauciest;
 }

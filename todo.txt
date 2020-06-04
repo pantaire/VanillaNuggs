@@ -2,7 +2,8 @@ Mutt:
 JS:
     Mathe:
         Mathe fixen. Nichtteilbare Zahlen werden noch nicht verwwendet, teils nur ein Zweig durchgegangen
-        "Exceptions": input = 0 abfangen, 
+        "Exceptions": input <= 0 abfangen
+        Accuracy hinzufügen für spätere Graphen
 
     Display:
         kurze Erklärung/Anleitung einbauen
