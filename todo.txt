@@ -1,16 +1,18 @@
-Mutt:
 JS:
+    Display:    
+        foreach ueber Orderelemente; Title in Objekten ergaenzen
+
     Mathe:
-        Mathe fixen. Nichtteilbare Zahlen werden noch nicht verwwendet, teils nur ein Zweig durchgegangen
+        Frobeniuszahlen Algorithmus anpassen (zumindest Exact)
+        Nichtteilbare Zahlen werden noch nicht verwendet, teils nur ein Zweig durchgegangen
         "Exceptions": input <= 0 abfangen
-        Accuracy hinzufügen für spätere Graphen
+        Nur Ganzzahlen zulassen
 
-    Display:
-        kurze Erklärung/Anleitung einbauen
-        Orders getrennt von Rest einblenden
-
-
-Kann:
-Style:
-    anpassen in eher gelb/braun oder so. zumindest nicht ganz so bootstrappy
-    bzw. minimales stylesheet einbinden, das keine class-attribute nutzt sondern über tags definiert
+Blog:
+    Basics
+        Motivation
+        Derzeitiger Fortschritt
+    Graphen (Nuggs/Dip, Preis/Nugg, Nuggverteilung)
+    Frobeniusnummern
+    Schwerpunkte setzen auf Preis / Soßen
+    User Interface

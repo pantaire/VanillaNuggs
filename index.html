@@ -12,118 +12,77 @@
 
     <!-- Bootstrap core CSS -->
     <link href="style.css" rel="stylesheet">
+    <script src="incubator-echarts-4.8.0/dist/echarts.min.js"></script>
+    <script src="main.js"></script>
 </head>
 
 <body>
 
-    <script src="main.js"></script>
-    <script src="https://www.w3schools.com/lib/w3.js"></script>
-
+<div style="background-color: var(--coolor4);">
     <div class="container">
         <header class="jumbotron my-4">
             <h1 class="display-3">Nuggs.</h1>
             <hr>
             <input type="number" id="input" class="input-group-lg get-input" draggable="true">
-            <button type="submit" class="btn btn-group-lg btn-dark btn-primary" onclick="showContent()">Los
-                gehts</button>
+            <button type="submit" class="btn btn-group-lg btn-dark btn-primary" onclick="showContent()">Go!</button>
             <!--<button type ="submit" class="btn btn-group-lg btn-dark btn-primary" onclick="rain()">Let it rain</button>-->
-
-            
+            <p>
+                As you see, this is nowhere near finished. I published this to try and pressure myself to finish it faster. You can see how well this is working right here.
+            </p>
 
         </header>
-        <div id="showContent" style="display: block;">
+        <div id="showContent" style="display: none;">
 
-            <p> Hier sind <span id="inputHere"></span> Nux:</p>
+            <p> Here are <span id="inputHere"></span> Nux:</p>
             <p>Mathtest: <span id="math"></span></p>
+            <p>Inserttest: <span id="text"></span></p>
             <hr>
             <div class="row text-center">
 
                 <div class="col-lg-3 col-md-6 mb-4">
                     <div class="card h-100">
-                        <div class="card-body">
-                            <h4 class="card-title">Genaueste Anzahl</h4>
-                            <hr>
-                            <p class="card-text">
-                                <span id="sum"></span>
-                            </p>
-                            <p class="card-text" id="price"></p>
-                            <p class="card-text" id="dips"></p>
-                            <hr>
-                            <p class="card-title" id="Z"></p>
-                            <p class="card-text"> <span id="sPrecise"></span>
-                            </p>
-                            <p class="card-text"> <span id="nPrecise"></span>
-                            </p>
-                            <p class="card-text"> <span id="tPrecise"></span>
+                        <div class="card-body" id="Exact">
                         </div>
                     </div>
                 </div>
 
                 <div class="col-lg-3 col-md-6 mb-4">
                     <div class="card h-100">
-                        <div class="card-body">
-                            <h4 class="card-title">Einfache Bestellung</h4>
-                            <hr>
-                            <p class="card-text">
-                                <span id="sum"></span>
-                            </p>
-                            <p class="card-text" id="price"></p>
-                            <p class="card-text" id="dips"></p>
-                            <hr>
-                            <p class="card-title" id="Z"></p>
-                            <p class="card-text"> <span id="sEasy"></span>
-                            </p>
-                            <p class="card-text"> <span id="nEasy"></span>
-                            </p>
-                            <p class="card-text"> <span id="tEasy"></span>
+                        <div class="card-body" id="Easiest">
                         </div>
                     </div>
                 </div>
 
                 <div class="col-lg-3 col-md-6 mb-4">
                     <div class="card h-100">
-                        <div class="card-body">
-                            <h4 class="card-title">Einfache Bestellung</h4>
-                            <hr>
-                            <p class="card-text">
-                                <span id="sum"></span>
-                            </p>
-                            <p class="card-text" id="price"></p>
-                            <p class="card-text" id="dips"></p>
-                            <hr>
-                            <p class="card-title" id="Z"></p>
-                            <p class="card-text"> <span id="sEasy"></span>
-                            </p>
-                            <p class="card-text"> <span id="nEasy"></span>
-                            </p>
-                            <p class="card-text"> <span id="tEasy"></span>
+                        <div class="card-body" id="Cheapest">
                         </div>
                     </div>
                 </div>
 
                 <div class="col-lg-3 col-md-6 mb-4">
                     <div class="card h-100">
-                        <div class="card-body">
+                        <div class="card-body" id="Sauciest">
                             <h4 class="card-title">Einfache Bestellung</h4>
-                            <hr>
-                            <p class="card-text">
-                                <span id="sum"></span>
-                            </p>
-                            <p class="card-text" id="price"></p>
-                            <p class="card-text" id="dips"></p>
-                            <hr>
-                            <p class="card-title" id="Z"></p>
-                            <p class="card-text"> <span id="sEasy"></span>
-                            </p>
-                            <p class="card-text"> <span id="nEasy"></span>
-                            </p>
-                            <p class="card-text"> <span id="tEasy"></span>
+                            <!--Before
+                                <hr>
+                                <p class="card-text">
+                                    <span id="sum"></span>
+                                </p>
+                                <p class="card-text" id="price"></p>
+                                <p class="card-text" id="dips"></p>
+                                <hr>
+                                <p class="card-title" id="Z"></p>
+                                <p class="card-text"> <span id="sEasy"></span>
+                                </p>
+                                <p class="card-text"> <span id="nEasy"></span>
+                                </p>
+                                <p class="card-text"> <span id="tEasy"></span>
+                            -->
                         </div>
                     </div>
                 </div>
             </div>
-
-            <hr>
 
             <!-- zum Preise ändern - coming soon 
             <div class="text-center" id="showContent" style="text-align: center">
@@ -145,6 +104,86 @@
                 </div>
             </div>
         -->
+            
+        
+    <!-- Echarts, just for testing purposes:
+        <div id="main" style="width: 600px;height:400px;"></div>
+
+        <script type="text/javascript">
+            var myChart = echarts.init(document.getElementById('main'));
+
+            // specify chart configuration item and data
+            option = {
+    tooltip: {
+        trigger: 'axis',
+        axisPointer: {            // 坐标轴指示器，坐标轴触发有效
+            type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+        }
+    },
+    legend: {
+        data: ['twens', 'nines', 'sixes']
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    },
+    xAxis: {
+        type: 'value'
+    },
+    yAxis: {
+        type: 'category',
+        data: ['Saucy', 'Cheap', 'Easy', 'Exact']
+    },
+    series: [
+        {
+            name: 'sixes',
+            type: 'bar',
+            stack: '总量',
+            label: {
+                show: true,
+                position: 'insideRight'
+            },
+            data: [exact.sixes, easiest.sixes, cheapest.sixes, sauciest.sixes]
+        },
+        {
+            name: 'nines',
+            type: 'bar',
+            stack: '总量',
+            label: {
+                show: true,
+                position: 'insideRight'
+            },
+            data: [exact.nines, easiest.nines, cheapest.nines, sauciest.nines]
+        },
+        {
+            name: 'twens',
+            type: 'bar',
+            stack: '总量',
+            label: {
+                show: true,
+                position: 'insideRight'
+            },
+            data: [exact.twens, easiest.twens, cheapest.twens, sauciest.twens]
+        },
+        {
+            name: 'nuggcount',
+            type: 'bar',
+            stack: '总量',
+            label: {
+                show: true,
+                position: 'insideRight'
+            },
+            data: [150, 212, 201, 154, 190, 330, 410]
+        }
+    ]
+};
+
+            // use configuration item and data specified to show chart
+            myChart.setOption(option);
+        </script>
+    -->
 
             <footer class="py-5 bg-light text-center">
                 <button type="button" onclick="toggleShowDisclaimer()"
@@ -152,7 +191,14 @@
                 <div class="container disclaimer" id="disclaimer">
 
                     <p class="m-0 text-center text-muted" display="none">
-                        asef
+                        <a href="https://coolors.co/ed6a5a-f4f1bb-9bc1bc-e6ebe0-36c9c6">click here for this color theme</a>
+                        <br>
+                        Thx to:
+                        <ul>
+                            <li> Justin, who told me about <a href="https://en.wikipedia.org/w/index.php?title=Chicken_McNugget_Theorem">the nugget theorem</a></li>
+                            <li> Dennis, who will find and exploit all security issues </li>
+                            <li> and Oli, who likes nuggets maybe a little TOO much. </li>
+                        </ul>
                         <!--Grüße gehen raus an:
                     <br>Justin, der mich auf <a href="https://en.wikipedia.org/w/index.php?title=Chicken_McNugget_Theorem&redirect=no">das Nuggettheorem</a> aufmerksam gemacht hat; 
                     <br>Dennis, der später alle Sicherheitslücken ausnutzen wird 
@@ -160,6 +206,7 @@
                     <br>Sorry an alle Vegetarier und Veganer: stellt euch vor, es seien Falafeln. 
                     -->
                     </p>
+
 
                 </div>
             </footer>

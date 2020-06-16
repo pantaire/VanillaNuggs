@@ -29,15 +29,30 @@ function showContent() {
     math();
     displayInput();
     toggleContent();
+    insertTest();
 }
 
+function insertTest() {
+    input = getInput();
+    math = math();
+    var text = "<ul> <li>" + input + "</li> <li>" + math + "</li> </ul>"
+    
+    document.getElementById("text").innerHTML = text;
+}
+
+//shows content after clicking start button
 function toggleContent() {
     var content = document.getElementById("showContent");
     if (content.style.display === "none") {
         content.style.display = "block";
     } else {
-        content.style.display = "none";
+        ChangeButtonText();
     }
+}
+
+//not implemented yet
+function ChangeButtonText() {
+    //change button text after initial start click
 }
 
 //reads inputAmount and displays it
@@ -126,6 +141,9 @@ function calcExact(inputAmount) {
     exact.price = exact.sixes * price6 + exact.nines * price9 + exact.twens * price20;
     exact.accuracy = (inputAmount / exact.nuggcount) * 100;
 
+    var exacttext = "<h4 class=\"card-title\">Exact Order</h4><div class=\"card-text\"><hr><p>Amount:  " + exact.nuggcount + "</p><p>Price:   " + exact.price + "</p><p>Dips:    " + exact.dipcount + "</p><p>Accuracy:" + exact.accuracy + "</p><hr><p>" + exact.sixes + " x 6</p><p>" + exact.nines + " x 9</p><p>" + exact.twens + " x 20</p></div>";
+    document.getElementById("Exact").innerHTML = exacttext;
+
     return exact;
 }
 
@@ -174,6 +192,10 @@ function calcEasiest(inputAmount) {
     easiest.dipcount = easiest.sixes * dip6 + easiest.nines * dip9 + easiest.twens * dip20;
     easiest.price = easiest.sixes * price6 + easiest.nines * price9 + easiest.twens * price20;
     easiest.accuracy = (inputAmount / easiest.nuggcount) * 100;
+
+    var text = "<h4 class=\"card-title\">Easiest Order</h4><div class=\"card-text\"><hr><p>Amount:  " + easiest.nuggcount + "</p><p>Price:   " + easiest.price + "</p><p>Dips:    " + easiest.dipcount + "</p><p>Accuracy:" + easiest.accuracy + "</p><hr><p>" + easiest.sixes + " x 6</p><p>" + easiest.nines + " x 9</p><p>" + easiest.twens + " x 20</p></div>";
+    document.getElementById("Easiest").innerHTML = text;
+
     return easiest;
 }
 
@@ -217,6 +239,9 @@ function calcCheapest(inputAmount) {
     cheapest.price = cheapest.sixes * price6 + cheapest.nines * price9 + cheapest.twens * price20;
     cheapest.accuracy = (inputAmount / cheapest.nuggcount) * 100;
 
+    var text = "<h4 class=\"card-title\">Cheapest Order</h4><div class=\"card-text\"><hr><p>Amount:  " + cheapest.nuggcount + "</p><p>Price:   " + cheapest.price + "</p><p>Dips:    " + cheapest.dipcount + "</p><p>Accuracy:" + cheapest.accuracy + "</p><hr><p>" + cheapest.sixes + " x 6</p><p>" + cheapest.nines + " x 9</p><p>" + cheapest.twens + " x 20</p></div>";
+    document.getElementById("Cheapest").innerHTML = text;
+
     return cheapest;
 }
 
@@ -246,6 +271,9 @@ function calcSauciest(inputAmount) {
     sauciest.dipcount = sauciest.sixes * dip6 + sauciest.nines * dip9 + sauciest.twens * dip20;
     sauciest.price = sauciest.sixes * price6 + sauciest.nines * price9 + sauciest.twens * price20;
     sauciest.accuracy = (inputAmount / sauciest.nuggcount) * 100;
+
+    var text = "<h4 class=\"card-title\">Most Dips</h4><div class=\"card-text\"><hr><p>Amount:  " + sauciest.nuggcount + "</p><p>Price:   " + sauciest.price + "</p><p>Dips:    " + sauciest.dipcount + "</p><p>Accuracy:" + sauciest.accuracy + "</p><hr><p>" + sauciest.sixes + " x 6</p><p>" + sauciest.nines + " x 9</p><p>" + sauciest.twens + " x 20</p></div>";
+    document.getElementById("Sauciest").innerHTML = text;
 
     return sauciest;
 }
